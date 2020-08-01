@@ -8,6 +8,7 @@ jobs:
     container: fedora:rawhide
     steps:
     - uses: actions/checkout@v2
+    - run: sudo dnf install -y qemu-user-static
     - name: tgz
       run: |
         ./create-targz.sh x86_64

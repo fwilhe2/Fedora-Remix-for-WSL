@@ -1,0 +1,14 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: fedora:rawhide
+    steps:
+    - uses: actions/checkout@v2
+    - name: tgz
+      run: |
+        ./create-targz.sh x86_64
+    - run: find .
